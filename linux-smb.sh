@@ -32,3 +32,5 @@ writable = yes
 valid users = admin
 read only = no
 EOF
+
+sudo systemctl restart smb
