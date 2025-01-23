@@ -54,4 +54,5 @@ cat > /etc/samba/smb.conf << EOF
       read only = no
 EOF
 echo -e "1234\n1234" | sudo smbpasswd -a $user
+sudo systemctl enable smbd
 sudo systemctl restart smbd
