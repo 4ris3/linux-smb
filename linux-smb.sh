@@ -1,6 +1,7 @@
 #create folders admin_files and others_files and set permissions/own
 cd /srv/
 sudo mkdir smb
+cd smb/
 sudo mkdir admin_files
 sudo mkdir others_files
 sudo group add mod
