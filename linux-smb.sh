@@ -15,9 +15,11 @@ sudo chown $user:$user admin_files
 sudo chmod 2770 admin_files
 sudo chown nobody:nogroup others_files
 sudo chmod 2777 others_files
-#download and start samba
+#download and start packages
 sudo apt install samba -y
 sudo systemctl start smbd
+sudo apt install openssh-server -y
+sudo systemctl start openssh-server
 #config smb.conf
 sudo rm /etc/samba/smb.conf
 cat > /etc/samba/smb.conf << EOF
@@ -55,4 +57,6 @@ cat > /etc/samba/smb.conf << EOF
 EOF
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo systemctl enable smbd
+sudo systemctl enable openssh-server
 sudo systemctl restart smbd
+sudo systemctl restart openssh-server
