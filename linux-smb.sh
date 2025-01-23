@@ -14,7 +14,7 @@ sudo apt install samba -y
 sudo systemctl start smbd
 #config smb.conf
 sudo rm /etc/samba/smb.conf
-sudo mv smb.conf /etc/samba/
+sudo mv /home/$user/server/smb.conf /etc/samba/
 sudo sed -i "s/changeitquickly/$user/g" /etc/samba/smb.conf
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo systemctl restart smb
