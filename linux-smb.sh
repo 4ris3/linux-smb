@@ -13,25 +13,8 @@ sudo chmod 777 others_files
 sudo apt install samba -y
 sudo systemctl start smbd
 #config smb.conf
-sudo tee -a /etc/samba/smb.conf << EOF
-
-[global]
-map to guest = Bad User
-guest account = nobody
-
-[others]
-path = /srv/smb/others_files
-browseable = yes
-writable = yes
-guest ok = yes
-read only = no
-
-[admin]
-path = /srv/smb/admin_files
-browseable = yes
-writable = yes
-valid users = $user
-read only = no
-EOF
-
+sudo rm /etc/samba/smb.conf
+sudo mv smb.conf /etc/samba/
+sudo sed -i "s/changeitquickly/$user/g" /etc/samba/smb.conf
+echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo systemctl restart smb
