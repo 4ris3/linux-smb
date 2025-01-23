@@ -3,8 +3,8 @@ cd /srv/
 sudo mkdir smb
 sudo mkdir admin_files
 sudo mkdir others_files
-sudo group add admin
-sudo chown admin:admin admin_files
+sudo group add mod
+sudo chown mod:mod admin_files
 sudo chmod 770 admin_files
 sudo chown nobody:nogroup others_files
 sudo chmod 777 others_files
