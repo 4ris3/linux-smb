@@ -1,11 +1,11 @@
+user=$(whoami)
 #create folders admin_files and others_files and set permissions/own
 cd /srv/
 sudo mkdir smb
 cd smb/
 sudo mkdir admin_files
 sudo mkdir others_files
-sudo group add mod
-sudo chown mod:mod admin_files
+sudo chown $user:$user admin_files
 sudo chmod 770 admin_files
 sudo chown nobody:nogroup others_files
 sudo chmod 777 others_files
@@ -30,7 +30,7 @@ read only = no
 path = /srv/smb/admin_files
 browseable = yes
 writable = yes
-valid users = admin
+valid users = $user
 read only = no
 EOF
 
