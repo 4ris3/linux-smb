@@ -19,7 +19,7 @@ sudo chmod 2777 others_files
 sudo apt install samba -y
 sudo systemctl start smbd
 sudo apt install openssh-server -y
-sudo systemctl start openssh-server
+sudo systemctl start ssh
 #config smb.conf
 sudo rm /etc/samba/smb.conf
 cat > /etc/samba/smb.conf << EOF
@@ -57,6 +57,6 @@ cat > /etc/samba/smb.conf << EOF
 EOF
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo systemctl enable smbd
-sudo systemctl enable openssh-server
+sudo systemctl enable ssh
 sudo systemctl restart smbd
-sudo systemctl restart openssh-server
+sudo systemctl restart ssh
