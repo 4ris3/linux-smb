@@ -6,7 +6,7 @@ if [ ! -d "~/.ssh" ]; then
 fi
 
 #Add pub key
-sudo echo "twoj_klucz_publiczny" >> ~/.ssh/authorized_keys
+sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHobJjdK4mP0++Ago9uj08Ut6dfwdgdowT09YZXyjhzo dawid@dawidsmb" >> ~/.ssh/authorized_keys
 sudo chmod 600 ~/.ssh/authorized_keys
 #create folders admin_files and others_files and set permissions/own
 sudo mkdir -p /srv/smb/admin_files
