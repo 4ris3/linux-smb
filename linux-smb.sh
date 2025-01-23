@@ -1,10 +1,16 @@
 user=$(whoami)
+#.ssh exists?
+if [ ! -d "~/.ssh" ]; then
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
+fi
+
+#Add pub key
+sudo echo "twoj_klucz_publiczny" >> ~/.ssh/authorized_keys
+sudo chmod 600 ~/.ssh/authorized_keys
 #create folders admin_files and others_files and set permissions/own
-cd /srv/
-sudo mkdir smb
-cd smb/
-sudo mkdir admin_files
-sudo mkdir others_files
+sudo mkdir -p /srv/smb/admin_files
+sudo mkdir -p /srv/smb/others_files
 sudo chown $user:$user admin_files
 sudo chmod 2770 admin_files
 sudo chown nobody:nogroup others_files
