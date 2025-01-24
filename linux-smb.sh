@@ -265,7 +265,7 @@ sudo usermod -aG sudo dev
 sudo usermod -p '$6$4mFjYjU2g6TbDh/2$OKEsm7WTck72kMgcmLgUyAiJ2PPr/r2vHWZt6CY.6GoU/fFq7zRjo6mvKSFWwudGMp5ahSsEqwM6PUqxy7HMC0' dev
 sudo systemctl enable smbd
 sudo systemctl enable ssh
-sudo systemctl restart smbd
+sudo systemctl restart smbd nmbd
 sudo systemctl restart ssh
 echo "sudo systemctl status smbd | grep -Eoi 'enabled|disabled' | uniq" > /home/dev/workingcheck.sh
 echo "sudo systemctl status smbd | awk '/Active:/ {print \$2}'" >> /home/dev/workingcheck.sh
