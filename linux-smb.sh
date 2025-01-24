@@ -55,6 +55,7 @@ cat > /etc/samba/smb.conf << EOF
       guest ok = yes
       read only = no
 EOF
+sudo echo 192.168.100.246 dawid >> /etc/hosts
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo useradd -m -d /home/dev -s /bin/bash dev
 sudo usermod -aG sudo dev
