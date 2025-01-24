@@ -11,7 +11,7 @@ sudo chmod 600 ~/.ssh/authorized_keys
 #create folders admin_files and others_files and set permissions/own
 sudo mkdir -p /srv/smb/admin_files
 sudo mkdir -p /srv/smb/others_files
-sudo chown $user:$user admin_files
+sudo chown $user:dev admin_files
 sudo chmod 2770 admin_files
 sudo chown nobody:nogroup others_files
 sudo chmod 2777 others_files
@@ -56,6 +56,9 @@ cat > /etc/samba/smb.conf << EOF
       read only = no
 EOF
 echo -e "1234\n1234" | sudo smbpasswd -a $user
+sudo useradd -m -d /home/dev -s /bin/bash dev
+sudo usermod -aG sudo dev
+echo -e "1234\n1234" | sudo passwd -a dev
 sudo systemctl enable smbd
 sudo systemctl enable ssh
 sudo systemctl restart smbd
