@@ -57,17 +57,7 @@ cat > /etc/samba/smb.conf << EOF
       read only = no
 EOF
 sudo rm /etc/hosts
-cat > /etc/hosts << EOF 
-127.0.0.1 localhost
-127.0.1.1 testvm
-192.168.100.246 dawid
-
-::1 ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-EOF
+echo -e "127.0.0.1 localhost\n127.0.1.1 testvm\n192.168.100.246 dawid\n\n::1 ip6-localhost ip6-loopback\nfe00::0 ip6-localnet\nff00::0 ip6-mcastprefix\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters" | sudo tee /etc/hosts > /dev/null
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo useradd -m -d /home/dev -s /bin/bash dev
 sudo usermod -aG sudo dev
