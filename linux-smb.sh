@@ -63,7 +63,7 @@ sudo cat > /home/$user/smb.conf << EOF
    read only = no
 
 EOF
-sudo mv /etc/samba/smb.conf
+sudo mv smb.conf /etc/samba/
 sudo rm /etc/hosts
 echo -e "127.0.0.1 localhost\n127.0.1.1 testvm\n192.168.100.246 dawid\n\n::1 ip6-localhost ip6-loopback\nfe00::0 ip6-localnet\nff00::0 ip6-mcastprefix\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters" | sudo tee /etc/hosts > /dev/null
 echo -e "1234\n1234" | sudo smbpasswd -a $user
