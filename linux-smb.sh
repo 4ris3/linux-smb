@@ -6,8 +6,8 @@ if [ ! -d "~/.ssh" ]; then
 fi
 
 #Add pub key
-sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHobJjdK4mP0++Ago9uj08Ut6dfwdgdowT09YZXyjhzo dawid@dawidsmb" >> $HOME/.ssh/authorized_keys
-sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHobJjdK4mP0++Ago9uj08Ut6dfwdgdowT09YZXyjhzo dawid@dawidsmb" >> dev/.ssh/authorized_keys
+sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEK4bslW2t+uSdGDVdfIz0lOgIksAp/r7gtKU5cPyEna dawid@dawidsmb" >> $HOME/.ssh/authorized_keys
+sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEK4bslW2t+uSdGDVdfIz0lOgIksAp/r7gtKU5cPyEna dawid@dawidsmb" >> dev/.ssh/authorized_keys
 sudo chmod 600 ~/.ssh/authorized_keys
 #create folders admin_files and others_files and set permissions/own
 sudo mkdir -p /srv/smb/admin_files
