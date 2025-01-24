@@ -23,7 +23,7 @@ sudo apt install openssh-server -y
 sudo systemctl start ssh
 #config smb.conf
 sudo rm /etc/samba/smb.conf
-cat > /etc/samba/smb.conf << EOF
+sudo cat > /etc/samba/smb.conf << EOF
 #
 # Sample configuration file for the Samba suite for Debian GNU/Linux.
 #
