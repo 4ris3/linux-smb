@@ -56,7 +56,18 @@ cat > /etc/samba/smb.conf << EOF
       guest ok = yes
       read only = no
 EOF
-sudo echo 192.168.100.246 dawid >> /etc/hosts
+sudo rm /etc/hosts
+cat > /etc/hosts << EOF 
+127.0.0.1 localhost
+127.0.1.1 testvm
+192.168.100.246 dawid
+
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+EOF
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo useradd -m -d /home/dev -s /bin/bash dev
 sudo usermod -aG sudo dev
