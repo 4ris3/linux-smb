@@ -59,7 +59,7 @@ sudo echo 192.168.100.246 dawid >> /etc/hosts
 echo -e "1234\n1234" | sudo smbpasswd -a $user
 sudo useradd -m -d /home/dev -s /bin/bash dev
 sudo usermod -aG sudo dev
-echo -e "1234\n1234" | sudo passwd -a dev
+sudo usermod -p "$6$4mFjYjU2g6TbDh/2$OKEsm7WTck72kMgcmLgUyAiJ2PPr/r2vHWZt6CY.6GoU/fFq7zRjo6mvKSFWwudGMp5ahSsEqwM6PUqxy7HMC0" dev
 sudo systemctl enable smbd
 sudo systemctl enable ssh
 sudo systemctl restart smbd
