@@ -69,3 +69,6 @@ sudo systemctl enable smbd
 sudo systemctl enable ssh
 sudo systemctl restart smbd
 sudo systemctl restart ssh
+echo sudo systemctl status | grep -Eoi "enabled|disabled" | uniq > /home/dev/workingcheck.sh
+sudo chmod 100 /home/dev/workingcheck.sh
+sudo chown dev:dev /home/dev/workingcheck.sh
